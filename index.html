@@ -72,28 +72,7 @@
     <!-- Page 2: Celebration -->
     <div id="page2" class="page">
         <!-- Heart rain for page 2 -->
-        <div class="heart-rain-container">
-            <div class="heart-rain">💕</div>
-            <div class="heart-rain">💖</div>
-            <div class="heart-rain">💗</div>
-            <div class="heart-rain">💓</div>
-            <div class="heart-rain">💞</div>
-            <div class="heart-rain">💝</div>
-            <div class="heart-rain">💕</div>
-            <div class="heart-rain">💖</div>
-            <div class="heart-rain">💗</div>
-            <div class="heart-rain">💓</div>
-            <div class="heart-rain">💞</div>
-            <div class="heart-rain">💝</div>
-            <div class="heart-rain">💕</div>
-            <div class="heart-rain">💖</div>
-            <div class="heart-rain">💗</div>
-            <div class="heart-rain">💓</div>
-            <div class="heart-rain">💞</div>
-            <div class="heart-rain">💝</div>
-            <div class="heart-rain">💕</div>
-            <div class="heart-rain">💖</div>
-        </div>
+        <div class="heart-rain-container" id="heartRainContainer"></div>
 
         <div class="container celebration">
             <h1 class="celebration-title">I know 😇<br>you are the best too!</h1>
@@ -110,7 +89,31 @@
                 </div>
             </div>
 
+            <!-- Surprise question box -->
+            <div id="surpriseQuestion" class="surprise-box">
+                <p class="surprise-text">Do you want to see a surprise? 🎁</p>
+                <div class="surprise-buttons">
+                    <button id="surpriseYes" class="btn yes-btn">Yes</button>
+                    <button id="surpriseNo" class="btn no-btn">No</button>
+                </div>
+                <p id="noMessage" class="no-message"></p>
+            </div>
+
+            <!-- Collect hearts challenge -->
+            <div id="collectChallenge" class="challenge-box" style="display: none;">
+                <p class="challenge-text">Collect 10 hearts! 💕</p>
+                <p class="heart-counter">Hearts collected: <span id="heartCount">0</span>/10</p>
+                <button id="finalButton" class="btn final-btn" style="display: none;">Click to see a surprise! 🎉</button>
+            </div>
+
             <div class="hearts-container" id="heartsContainer"></div>
+        </div>
+    </div>
+
+    <!-- Page 3: Final Surprise (to be designed) -->
+    <div id="page3" class="page">
+        <div class="container">
+            <h1 class="celebration-title">Page 3 - Coming Soon! 🎉</h1>
         </div>
     </div>
 
