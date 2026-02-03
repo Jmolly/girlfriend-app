@@ -13,6 +13,9 @@ const noMessage = document.getElementById('noMessage');
 const collectChallenge = document.getElementById('collectChallenge');
 const heartCount = document.getElementById('heartCount');
 const finalButton = document.getElementById('finalButton');
+const btsAudio = document.getElementById('btsAudio');
+const rickrollAudio = document.getElementById('rickrollAudio');
+const sparkleAudio = document.getElementById('sparkleAudio');
 
 // Initial sizes
 let yesSize = 1;
@@ -49,6 +52,9 @@ yesBtn.addEventListener('click', () => {
 
     // Start heart rain
     startHeartRain();
+
+    // Play BTS music
+    btsAudio.play().catch(e => console.log('Audio play failed:', e));
 });
 
 // No button click - unlikely but just in case
@@ -166,9 +172,57 @@ surpriseYes.addEventListener('click', () => {
     challengeActive = true;
 });
 
+// Sparkle sound function - play audio file
+function playSparkleSound() {
+    // Reset audio to beginning and play
+    sparkleAudio.currentTime = 0;
+    sparkleAudio.play().catch(e => console.log('Sparkle audio play failed:', e));
+}
+
+// Create explosion particles
+function createExplosion(x, y) {
+    const particles = ['💕', '💖', '💗', '💓', '💞', '✨', '⭐'];
+    const particleCount = 8;
+
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'explosion-particle';
+        particle.textContent = particles[Math.floor(Math.random() * particles.length)];
+
+        // Random direction for each particle
+        const angle = (Math.PI * 2 * i) / particleCount;
+        const distance = 100 + Math.random() * 50;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        particle.style.setProperty('--tx', tx + 'px');
+        particle.style.setProperty('--ty', ty + 'px');
+
+        document.body.appendChild(particle);
+
+        // Remove particle after animation
+        setTimeout(() => {
+            particle.remove();
+        }, 800);
+    }
+}
+
 // Collect heart function
 function collectHeart(heart) {
     if (!challengeActive) return;
+
+    // Play sparkle sound
+    playSparkleSound();
+
+    // Get heart position for explosion
+    const rect = heart.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+
+    // Create explosion effect
+    createExplosion(x, y);
 
     heart.classList.add('clicked');
     heartsCollected++;
@@ -177,7 +231,7 @@ function collectHeart(heart) {
     // Remove heart
     setTimeout(() => {
         heart.remove();
-    }, 500);
+    }, 600);
 
     // Check if collected 10 hearts
     if (heartsCollected >= 10) {
@@ -193,4 +247,9 @@ finalButton.addEventListener('click', () => {
 
     // Stop heart rain
     clearInterval(heartRainInterval);
+
+    // Stop BTS music and play rickroll
+    btsAudio.pause();
+    btsAudio.currentTime = 0;
+    rickrollAudio.play().catch(e => console.log('Audio play failed:', e));
 });
