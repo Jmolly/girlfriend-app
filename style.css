@@ -12,6 +12,66 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    position: relative;
+}
+
+/* Background decorations */
+.bg-decoration {
+    position: fixed;
+    font-size: 2rem;
+    opacity: 0.15;
+    z-index: 0;
+    animation: float 20s infinite ease-in-out;
+    pointer-events: none;
+}
+
+.bg-decoration:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+.bg-decoration:nth-child(2) { top: 20%; right: 10%; animation-delay: 2s; }
+.bg-decoration:nth-child(3) { top: 60%; left: 8%; animation-delay: 4s; }
+.bg-decoration:nth-child(4) { top: 75%; right: 20%; animation-delay: 1s; }
+.bg-decoration:nth-child(5) { top: 40%; left: 5%; animation-delay: 3s; }
+.bg-decoration:nth-child(6) { top: 85%; left: 25%; animation-delay: 5s; }
+.bg-decoration:nth-child(7) { top: 30%; right: 25%; animation-delay: 2.5s; }
+.bg-decoration:nth-child(8) { top: 50%; right: 5%; animation-delay: 4.5s; }
+.bg-decoration:nth-child(9) { top: 15%; left: 40%; animation-delay: 1.5s; }
+.bg-decoration:nth-child(10) { top: 70%; right: 35%; animation-delay: 3.5s; }
+.bg-decoration:nth-child(11) { top: 5%; right: 45%; animation-delay: 0.5s; }
+.bg-decoration:nth-child(12) { top: 90%; left: 50%; animation-delay: 5.5s; }
+.bg-decoration:nth-child(13) { top: 25%; left: 30%; animation-delay: 1s; }
+.bg-decoration:nth-child(14) { top: 45%; right: 15%; animation-delay: 3s; }
+.bg-decoration:nth-child(15) { top: 80%; left: 12%; animation-delay: 2s; }
+.bg-decoration:nth-child(16) { top: 55%; right: 40%; animation-delay: 4s; }
+.bg-decoration:nth-child(17) { top: 12%; left: 55%; animation-delay: 2.5s; }
+.bg-decoration:nth-child(18) { top: 65%; right: 8%; animation-delay: 3.5s; }
+.bg-decoration:nth-child(19) { top: 35%; left: 20%; animation-delay: 1.5s; }
+.bg-decoration:nth-child(20) { top: 92%; right: 30%; animation-delay: 4.5s; }
+.bg-decoration:nth-child(21) { top: 8%; left: 70%; animation-delay: 0.5s; }
+.bg-decoration:nth-child(22) { top: 48%; left: 45%; animation-delay: 5s; }
+.bg-decoration:nth-child(23) { top: 78%; right: 50%; animation-delay: 3.5s; }
+.bg-decoration:nth-child(24) { top: 22%; right: 55%; animation-delay: 2s; }
+.bg-decoration:nth-child(25) { top: 88%; left: 38%; animation-delay: 4s; }
+.bg-decoration:nth-child(26) { top: 32%; left: 65%; animation-delay: 1s; }
+.bg-decoration:nth-child(27) { top: 58%; right: 22%; animation-delay: 5.5s; }
+.bg-decoration:nth-child(28) { top: 18%; left: 80%; animation-delay: 3s; }
+.bg-decoration:nth-child(29) { top: 72%; right: 60%; animation-delay: 2.5s; }
+.bg-decoration:nth-child(30) { top: 42%; left: 75%; animation-delay: 4.5s; }
+.bg-decoration:nth-child(31) { top: 95%; right: 12%; animation-delay: 1.5s; }
+.bg-decoration:nth-child(32) { top: 52%; left: 60%; animation-delay: 0.5s; }
+.bg-decoration:nth-child(33) { top: 28%; right: 70%; animation-delay: 5s; }
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(0) rotate(-5deg);
+    }
+    75% {
+        transform: translateY(-15px) rotate(3deg);
+    }
 }
 
 .page {
@@ -20,6 +80,8 @@ body {
     min-height: 100vh;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 1;
 }
 
 .page.active {
@@ -39,12 +101,73 @@ body {
 }
 
 .title {
-    font-size: 2.5rem;
-    color: #ff69b4;
-    margin-bottom: 40px;
-    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+    font-family: 'Pacifico', cursive;
+    font-size: 2.8rem;
+    color: #ffe0f0;
+    margin-bottom: 30px;
+    text-shadow:
+        0 0 10px rgba(255, 105, 180, 0.8),
+        0 0 20px rgba(255, 105, 180, 0.6),
+        0 0 30px rgba(255, 105, 180, 0.4),
+        2px 2px 4px rgba(255, 20, 147, 0.3);
     line-height: 1.4;
-    font-weight: 600;
+    font-weight: 400;
+    letter-spacing: 2px;
+    animation: neonGlow 2s ease-in-out infinite;
+}
+
+@keyframes neonGlow {
+    0%, 100% {
+        text-shadow:
+            0 0 10px rgba(255, 105, 180, 0.8),
+            0 0 20px rgba(255, 105, 180, 0.6),
+            0 0 30px rgba(255, 105, 180, 0.4),
+            2px 2px 4px rgba(255, 20, 147, 0.3);
+    }
+    50% {
+        text-shadow:
+            0 0 20px rgba(255, 105, 180, 1),
+            0 0 30px rgba(255, 105, 180, 0.8),
+            0 0 40px rgba(255, 105, 180, 0.6),
+            2px 2px 4px rgba(255, 20, 147, 0.5);
+    }
+}
+
+.photos-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.photo-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    transition: all 0.4s ease;
+    border: 3px solid rgba(255, 182, 193, 0.6);
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.2), rgba(255, 105, 180, 0.2));
+}
+
+.photo-wrapper:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.5);
+    border-color: #ff69b4;
+}
+
+.photo {
+    display: block;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+
+.photo-wrapper:hover .photo {
+    transform: scale(1.1);
 }
 
 .question-box {
@@ -52,10 +175,12 @@ body {
 }
 
 .question {
+    font-family: 'Quicksand', sans-serif;
     font-size: 1.5rem;
     color: #ff1493;
     margin-bottom: 40px;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .buttons-container {
@@ -78,7 +203,7 @@ body {
 }
 
 .yes-btn {
-    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    background: linear-gradient(135deg, #ffb3d9, #ff8ac9);
     color: white;
     transform: scale(1);
 }
@@ -110,6 +235,7 @@ body {
     text-shadow: 3px 3px 6px rgba(255, 105, 180, 0.4);
     animation: pulse 2s ease-in-out infinite;
     line-height: 1.4;
+    margin-bottom: 30px;
 }
 
 @keyframes pulse {
@@ -119,6 +245,123 @@ body {
     50% {
         transform: scale(1.05);
     }
+}
+
+/* Heart Rain Effect for Page 2 */
+.heart-rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+    display: none;
+}
+
+#page2.active .heart-rain-container {
+    display: block;
+}
+
+.heart-rain {
+    position: absolute;
+    top: -50px;
+    font-size: 1.5rem;
+    opacity: 0.6;
+    animation: rain 8s linear infinite;
+}
+
+@keyframes rain {
+    0% {
+        top: -50px;
+        opacity: 0.6;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+    }
+}
+
+.heart-rain:nth-child(1) { left: 5%; animation-duration: 7s; animation-delay: 0s; }
+.heart-rain:nth-child(2) { left: 10%; animation-duration: 8s; animation-delay: 1s; }
+.heart-rain:nth-child(3) { left: 15%; animation-duration: 6s; animation-delay: 2s; }
+.heart-rain:nth-child(4) { left: 20%; animation-duration: 9s; animation-delay: 0.5s; }
+.heart-rain:nth-child(5) { left: 25%; animation-duration: 7.5s; animation-delay: 1.5s; }
+.heart-rain:nth-child(6) { left: 30%; animation-duration: 8.5s; animation-delay: 2.5s; }
+.heart-rain:nth-child(7) { left: 35%; animation-duration: 7s; animation-delay: 3s; }
+.heart-rain:nth-child(8) { left: 40%; animation-duration: 6.5s; animation-delay: 0.8s; }
+.heart-rain:nth-child(9) { left: 45%; animation-duration: 8s; animation-delay: 1.8s; }
+.heart-rain:nth-child(10) { left: 50%; animation-duration: 7.5s; animation-delay: 2.8s; }
+.heart-rain:nth-child(11) { left: 55%; animation-duration: 9s; animation-delay: 0.3s; }
+.heart-rain:nth-child(12) { left: 60%; animation-duration: 8s; animation-delay: 1.3s; }
+.heart-rain:nth-child(13) { left: 65%; animation-duration: 7s; animation-delay: 2.3s; }
+.heart-rain:nth-child(14) { left: 70%; animation-duration: 6.5s; animation-delay: 3.3s; }
+.heart-rain:nth-child(15) { left: 75%; animation-duration: 8.5s; animation-delay: 0.6s; }
+.heart-rain:nth-child(16) { left: 80%; animation-duration: 7.5s; animation-delay: 1.6s; }
+.heart-rain:nth-child(17) { left: 85%; animation-duration: 9s; animation-delay: 2.6s; }
+.heart-rain:nth-child(18) { left: 90%; animation-duration: 8s; animation-delay: 3.6s; }
+.heart-rain:nth-child(19) { left: 95%; animation-duration: 7s; animation-delay: 0.9s; }
+.heart-rain:nth-child(20) { left: 12%; animation-duration: 8.5s; animation-delay: 1.9s; }
+
+/* Celebration Photos */
+.celebration-photos-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.celebration-photo-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.4);
+    transition: all 0.5s ease;
+    border: 4px solid rgba(255, 105, 180, 0.7);
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.3), rgba(255, 105, 180, 0.3));
+    animation: photoFloat 3s ease-in-out infinite;
+}
+
+.celebration-photo-wrapper:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.celebration-photo-wrapper:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.celebration-photo-wrapper:nth-child(3) {
+    animation-delay: 2s;
+}
+
+@keyframes photoFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+}
+
+.celebration-photo-wrapper:hover {
+    transform: translateY(-15px) scale(1.1) rotate(5deg);
+    box-shadow: 0 20px 50px rgba(255, 105, 180, 0.6);
+    border-color: #ff1493;
+}
+
+.celebration-photo {
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.celebration-photo-wrapper:hover .celebration-photo {
+    transform: scale(1.15);
 }
 
 /* Hearts firework */
@@ -160,12 +403,30 @@ body {
         font-size: 2rem;
     }
 
+    .photos-container {
+        gap: 15px;
+    }
+
+    .photo {
+        width: 140px;
+        height: 140px;
+    }
+
     .question {
         font-size: 1.2rem;
     }
 
     .celebration-title {
         font-size: 2rem;
+    }
+
+    .celebration-photos-container {
+        gap: 15px;
+    }
+
+    .celebration-photo {
+        width: 120px;
+        height: 120px;
     }
 
     .btn {
