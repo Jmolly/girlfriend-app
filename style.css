@@ -100,6 +100,7 @@ body {
     border: 3px solid rgba(255, 182, 193, 0.5);
     position: relative;
     z-index: 20;
+    pointer-events: auto;
 }
 
 .title {
@@ -259,7 +260,12 @@ body {
     z-index: 10;
     overflow: hidden;
     display: none;
-    pointer-events: auto;
+    pointer-events: none;
+}
+
+/* Interactive mode - rain goes on top after accepting challenge */
+.heart-rain-container.interactive {
+    z-index: 30;
 }
 
 #page2.active .heart-rain-container {

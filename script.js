@@ -139,10 +139,8 @@ function createRainHeart() {
     // Random delay
     heart.style.animationDelay = Math.random() * 1 + 's';
 
-    // Add click handler if challenge is active
-    if (challengeActive) {
-        heart.addEventListener('click', () => collectHeart(heart));
-    }
+    // Always add click handler - collectHeart will check if challenge is active
+    heart.addEventListener('click', () => collectHeart(heart));
 
     heartRainContainer.appendChild(heart);
 
@@ -170,6 +168,9 @@ surpriseYes.addEventListener('click', () => {
     surpriseQuestion.style.display = 'none';
     collectChallenge.style.display = 'block';
     challengeActive = true;
+
+    // Make heart rain interactive - bring it to front
+    heartRainContainer.classList.add('interactive');
 });
 
 // Sparkle sound function - play audio file
@@ -237,6 +238,9 @@ function collectHeart(heart) {
     if (heartsCollected >= 10) {
         challengeActive = false;
         finalButton.style.display = 'block';
+
+        // Move heart rain back to background
+        heartRainContainer.classList.remove('interactive');
     }
 }
 
