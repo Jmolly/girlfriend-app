@@ -256,4 +256,144 @@ finalButton.addEventListener('click', () => {
     btsAudio.pause();
     btsAudio.currentTime = 0;
     rickrollAudio.play().catch(e => console.log('Audio play failed:', e));
+
+    // Start emoji rain on page 3
+    startPage3EmojiRain();
 });
+
+// Page 3 - Clickable hearts handlers
+const clickableHeart1 = document.getElementById('clickableHeart1');
+const clickableHeart2 = document.getElementById('clickableHeart2');
+const finalReveal = document.getElementById('finalReveal');
+const fireworkAudio = document.getElementById('fireworkAudio');
+const heartsBackground = document.querySelector('.hearts-background');
+const page3EmojiRain = document.getElementById('page3EmojiRain');
+let page3RainInterval;
+
+// Page 3 emoji rain
+function startPage3EmojiRain() {
+    page3RainInterval = setInterval(() => {
+        createPage3RainEmoji();
+    }, 300);
+}
+
+function createPage3RainEmoji() {
+    const emojis = ['💕', '💖', '💗', '💓', '💞', '💝', '✨', '⭐', '💫', '🌟', '🌸', '🌺', '🌹', '🌷', '💐'];
+    const emoji = document.createElement('div');
+    emoji.className = 'page3-rain-emoji';
+    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+    // Random position
+    emoji.style.left = Math.random() * 100 + '%';
+
+    // Random duration
+    const duration = 8 + Math.random() * 7;
+    emoji.style.animationDuration = duration + 's';
+
+    // Random delay
+    emoji.style.animationDelay = Math.random() * 2 + 's';
+
+    page3EmojiRain.appendChild(emoji);
+
+    // Remove after animation
+    setTimeout(() => {
+        if (emoji.parentNode) {
+            emoji.remove();
+        }
+    }, (duration + 2) * 1000);
+}
+
+// Create firework explosion with emojis
+function createFireworkExplosion(x, y) {
+    const emojis = ['✨', '⭐', '💫', '🌟', '💕', '💖', '💗', '💓', '💞'];
+    const particleCount = 20;
+
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'firework-emoji';
+        particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+        // Random direction for each particle
+        const angle = (Math.PI * 2 * i) / particleCount;
+        const distance = 150 + Math.random() * 100;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+        const rotate = Math.random() * 720;
+
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        particle.style.setProperty('--tx', tx + 'px');
+        particle.style.setProperty('--ty', ty + 'px');
+        particle.style.setProperty('--rotate', rotate + 'deg');
+
+        document.body.appendChild(particle);
+
+        // Remove particle after animation
+        setTimeout(() => {
+            particle.remove();
+        }, 1500);
+    }
+}
+
+// Create floating hearts background
+function createFloatingHeartsBackground() {
+    const heartEmojis = ['💕', '💖', '💗', '💓', '💞', '💝'];
+
+    for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+        heart.style.position = 'absolute';
+        heart.style.fontSize = (1 + Math.random() * 2) + 'rem';
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.top = Math.random() * 100 + '%';
+        heart.style.opacity = '0.3';
+        heart.style.animation = `float ${5 + Math.random() * 5}s ease-in-out infinite`;
+        heart.style.animationDelay = Math.random() * 5 + 's';
+
+        heartsBackground.appendChild(heart);
+    }
+}
+
+// First heart click handler
+if (clickableHeart1) {
+    clickableHeart1.addEventListener('click', (e) => {
+        // Create firework explosions at click position
+        const rect = clickableHeart1.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+
+        // Create multiple explosions
+        createFireworkExplosion(x, y);
+        setTimeout(() => createFireworkExplosion(x - 100, y - 50), 200);
+        setTimeout(() => createFireworkExplosion(x + 100, y - 50), 400);
+
+        // Play firework sound
+        fireworkAudio.currentTime = 0;
+        fireworkAudio.play().catch(e => console.log('Firework audio play failed:', e));
+
+        // Show final reveal with delay
+        setTimeout(() => {
+            finalReveal.classList.add('show');
+            createFloatingHeartsBackground();
+        }, 800);
+    });
+}
+
+// Second heart click handler (to be implemented)
+if (clickableHeart2) {
+    clickableHeart2.addEventListener('click', () => {
+        // To be implemented in next step
+        console.log('Second heart clicked!');
+    });
+}
+
+// Click anywhere on final reveal to close it
+if (finalReveal) {
+    finalReveal.addEventListener('click', () => {
+        finalReveal.classList.remove('show');
+        // Clear floating hearts
+        if (heartsBackground) {
+            heartsBackground.innerHTML = '';
+        }
+    });
+}

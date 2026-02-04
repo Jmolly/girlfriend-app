@@ -110,10 +110,74 @@
         </div>
     </div>
 
-    <!-- Page 3: Final Surprise (to be designed) -->
+    <!-- Page 3: Final Page -->
     <div id="page3" class="page">
-        <div class="container">
-            <h1 class="celebration-title">Page 3 - Coming Soon! 🎉</h1>
+        <!-- Background decorations for page 3 -->
+        <div class="page3-bg-decoration">💕</div>
+        <div class="page3-bg-decoration">🌸</div>
+        <div class="page3-bg-decoration">💖</div>
+        <div class="page3-bg-decoration">🌺</div>
+        <div class="page3-bg-decoration">💗</div>
+        <div class="page3-bg-decoration">🌹</div>
+        <div class="page3-bg-decoration">💝</div>
+        <div class="page3-bg-decoration">🌷</div>
+        <div class="page3-bg-decoration">💓</div>
+        <div class="page3-bg-decoration">🌼</div>
+        <div class="page3-bg-decoration">💞</div>
+        <div class="page3-bg-decoration">✨</div>
+        <div class="page3-bg-decoration">⭐</div>
+        <div class="page3-bg-decoration">💫</div>
+        <div class="page3-bg-decoration">🌟</div>
+
+        <!-- Emoji rain for page 3 -->
+        <div class="page3-emoji-rain" id="page3EmojiRain"></div>
+
+        <div class="page3-content">
+            <!-- Top section with two photos -->
+            <div class="yin-yang-section">
+                <div class="photo-card left">
+                    <div class="photo-frame">
+                        <img src="assets/images/IMG_0873.JPG" alt="Инь" class="page3-photo">
+                    </div>
+                    <p class="photo-caption">Она моя...ИНЬ</p>
+                </div>
+
+                <div class="photo-card right">
+                    <div class="photo-frame">
+                        <img src="assets/images/IMG_0874.JPG" alt="Янь" class="page3-photo">
+                    </div>
+                    <p class="photo-caption">а я её...ЯНЬ</p>
+                </div>
+            </div>
+
+            <!-- Center photo with caption -->
+            <div class="center-photo-section">
+                <div class="photo-frame center">
+                    <img src="assets/images/IMG_0872.JPG" alt="Together" class="page3-photo large">
+                </div>
+                <p class="center-caption">Мы чувствуем друг друга максимально 😮‍💨❤️‍🔥</p>
+            </div>
+
+            <!-- Interactive hearts -->
+            <div class="heart-button-section">
+                <div id="clickableHeart1" class="clickable-heart left-heart">
+                    💗
+                    <span class="click-me-text">click me first!😏</span>
+                </div>
+                <div id="clickableHeart2" class="clickable-heart right-heart">
+                    💗
+                    <span class="click-me-text">and now click me 😍</span>
+                </div>
+            </div>
+
+            <!-- Hidden final photo with hearts background -->
+            <div id="finalReveal" class="final-reveal">
+                <div class="hearts-background"></div>
+                <div class="final-photo-container">
+                    <img src="assets/images/IMG_2556.JPG" alt="I love you" class="final-photo">
+                    <h2 class="love-text">I love you! 😘</h2>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -131,6 +195,11 @@
     <audio id="sparkleAudio" preload="auto">
         <!-- Sparkle sound effect -->
         <source src="assets/sounds/sparkle.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="fireworkAudio" preload="auto">
+        <!-- Firework sound effect -->
+        <source src="assets/sounds/zvuki-vustrelov-feerverka.mp3" type="audio/mpeg">
     </audio>
 
     <script src="script.js"></script>
