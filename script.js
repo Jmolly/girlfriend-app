@@ -335,23 +335,47 @@ function createFireworkExplosion(x, y) {
     }
 }
 
-// Create floating hearts background
+// Create floating hearts background - positioned around edges to avoid faces
 function createFloatingHeartsBackground() {
-    const heartEmojis = ['💕', '💖', '💗', '💓', '💞', '💝'];
+    const emojis = ['💕', '💖', '💗', '💓', '💞', '💝', '✨', '⭐', '💫', '🌟', '🌸', '🌺', '🌹', '🌷', '💐', '🩷', '❤️', '💘'];
 
-    for (let i = 0; i < 30; i++) {
-        const heart = document.createElement('div');
-        heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
-        heart.style.position = 'absolute';
-        heart.style.fontSize = (1 + Math.random() * 2) + 'rem';
-        heart.style.left = Math.random() * 100 + '%';
-        heart.style.top = Math.random() * 100 + '%';
-        heart.style.opacity = '0.3';
-        heart.style.animation = `float ${5 + Math.random() * 5}s ease-in-out infinite`;
-        heart.style.animationDelay = Math.random() * 5 + 's';
+    // Edge positions - avoid center where photo/faces are
+    const edgePositions = [
+        // Top edge
+        { left: '5%', top: '5%' }, { left: '15%', top: '3%' }, { left: '25%', top: '8%' },
+        { left: '75%', top: '5%' }, { left: '85%', top: '3%' }, { left: '95%', top: '8%' },
+        // Bottom edge
+        { left: '5%', top: '90%' }, { left: '15%', top: '93%' }, { left: '25%', top: '88%' },
+        { left: '75%', top: '92%' }, { left: '85%', top: '95%' }, { left: '95%', top: '88%' },
+        // Left edge
+        { left: '2%', top: '20%' }, { left: '5%', top: '35%' }, { left: '3%', top: '50%' },
+        { left: '5%', top: '65%' }, { left: '2%', top: '80%' },
+        // Right edge
+        { left: '95%', top: '20%' }, { left: '98%', top: '35%' }, { left: '95%', top: '50%' },
+        { left: '98%', top: '65%' }, { left: '95%', top: '80%' },
+        // Corners extra
+        { left: '10%', top: '12%' }, { left: '90%', top: '12%' },
+        { left: '10%', top: '85%' }, { left: '90%', top: '85%' },
+        // More scattered edges
+        { left: '35%', top: '2%' }, { left: '65%', top: '2%' },
+        { left: '35%', top: '96%' }, { left: '65%', top: '96%' },
+        { left: '8%', top: '45%' }, { left: '92%', top: '45%' }
+    ];
 
-        heartsBackground.appendChild(heart);
-    }
+    edgePositions.forEach((pos, i) => {
+        const emoji = document.createElement('div');
+        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        emoji.style.position = 'absolute';
+        emoji.style.fontSize = (1.2 + Math.random() * 1.5) + 'rem';
+        emoji.style.left = pos.left;
+        emoji.style.top = pos.top;
+        emoji.style.opacity = '0.4';
+        emoji.style.animation = `float ${4 + Math.random() * 4}s ease-in-out infinite`;
+        emoji.style.animationDelay = (i * 0.15) + 's';
+        emoji.style.pointerEvents = 'none';
+
+        heartsBackground.appendChild(emoji);
+    });
 }
 
 // First heart click handler
@@ -367,9 +391,13 @@ if (clickableHeart1) {
         setTimeout(() => createFireworkExplosion(x - 100, y - 50), 200);
         setTimeout(() => createFireworkExplosion(x + 100, y - 50), 400);
 
-        // Play firework sound
+        // Play firework sound (short - 2 seconds)
         fireworkAudio.currentTime = 0;
         fireworkAudio.play().catch(e => console.log('Firework audio play failed:', e));
+        setTimeout(() => {
+            fireworkAudio.pause();
+            fireworkAudio.currentTime = 0;
+        }, 2000);
 
         // Show final reveal with delay
         setTimeout(() => {
@@ -379,11 +407,10 @@ if (clickableHeart1) {
     });
 }
 
-// Second heart click handler (to be implemented)
+// Second heart click handler - opens YouTube video
 if (clickableHeart2) {
     clickableHeart2.addEventListener('click', () => {
-        // To be implemented in next step
-        console.log('Second heart clicked!');
+        window.open('https://youtu.be/7uinhV9khgY?si=G-3yusoE7t90nclr', '_blank');
     });
 }
 

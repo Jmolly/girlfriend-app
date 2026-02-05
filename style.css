@@ -575,6 +575,22 @@ body {
 .page3-bg-decoration:nth-child(13) { top: 30%; right: 50%; animation-delay: 3s; }
 .page3-bg-decoration:nth-child(14) { top: 75%; left: 15%; animation-delay: 5s; }
 .page3-bg-decoration:nth-child(15) { top: 45%; right: 40%; animation-delay: 2.5s; }
+/* Extra emojis */
+.page3-bg-decoration:nth-child(16) { top: 8%; left: 75%; animation-delay: 0.5s; }
+.page3-bg-decoration:nth-child(17) { top: 92%; right: 20%; animation-delay: 1.5s; }
+.page3-bg-decoration:nth-child(18) { top: 18%; left: 35%; animation-delay: 2.5s; }
+.page3-bg-decoration:nth-child(19) { top: 58%; left: 85%; animation-delay: 3.5s; }
+.page3-bg-decoration:nth-child(20) { top: 38%; right: 5%; animation-delay: 4.5s; }
+.page3-bg-decoration:nth-child(21) { top: 72%; left: 80%; animation-delay: 0.8s; }
+.page3-bg-decoration:nth-child(22) { top: 5%; right: 35%; animation-delay: 1.8s; }
+.page3-bg-decoration:nth-child(23) { top: 88%; left: 45%; animation-delay: 2.8s; }
+.page3-bg-decoration:nth-child(24) { top: 28%; left: 90%; animation-delay: 3.8s; }
+.page3-bg-decoration:nth-child(25) { top: 62%; right: 65%; animation-delay: 4.8s; }
+.page3-bg-decoration:nth-child(26) { top: 95%; right: 55%; animation-delay: 0.3s; }
+.page3-bg-decoration:nth-child(27) { top: 12%; right: 80%; animation-delay: 1.3s; }
+.page3-bg-decoration:nth-child(28) { top: 48%; left: 2%; animation-delay: 2.3s; }
+.page3-bg-decoration:nth-child(29) { top: 78%; right: 85%; animation-delay: 3.3s; }
+.page3-bg-decoration:nth-child(30) { top: 22%; left: 60%; animation-delay: 4.3s; }
 
 /* Emoji rain for page 3 */
 .page3-emoji-rain {
