@@ -284,11 +284,18 @@ body {
     user-select: none;
     padding: 15px;
     z-index: 100;
+    will-change: transform, opacity;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .heart-rain:hover {
-    transform: scale(1.4);
     filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 105, 180, 0.8));
+}
+
+@media (max-width: 600px) {
+    .heart-rain:hover {
+        filter: none;
+    }
 }
 
 .heart-rain.clicked {
@@ -332,11 +339,11 @@ body {
 
 @keyframes rain {
     0% {
-        top: -50px;
+        transform: translateY(0);
         opacity: 1;
     }
     100% {
-        top: 100vh;
+        transform: translateY(calc(100vh + 50px));
         opacity: 1;
     }
 }
@@ -980,8 +987,30 @@ body {
         font-size: 1.5rem;
     }
 
+    /* Heart rain mobile optimizations */
     .heart-rain {
-        font-size: 1.5rem;
+        font-size: 2rem;
+        padding: 12px;
+        will-change: transform, opacity;
+    }
+
+    .heart-rain.clicked {
+        animation: heartExplodeMobile 0.3s ease-out forwards !important;
+    }
+
+    @keyframes heartExplodeMobile {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(1.8);
+            opacity: 0;
+        }
+    }
+
+    .explosion-particle {
+        font-size: 1rem;
     }
 
     .btn {
@@ -989,28 +1018,50 @@ body {
         font-size: 1rem;
     }
 
-    /* Page 3 responsive */
+    /* ===== Page 3 mobile - same layout as desktop ===== */
     .page3-content {
-        padding: 20px 15px;
+        padding: 25px 15px;
+        max-width: 100%;
     }
 
+    /* Yin-Yang photos side by side (like desktop) */
     .yin-yang-section {
-        flex-direction: column;
-        gap: 30px;
+        flex-direction: row;
+        gap: 12px;
         margin-bottom: 30px;
+        justify-content: center;
+        flex-wrap: nowrap;
+        align-items: flex-start;
     }
 
     .photo-card {
-        min-width: 100%;
+        min-width: 0;
+        flex: 0 1 auto;
+    }
+
+    .photo-card.left,
+    .photo-card.right {
+        animation: none;
+    }
+
+    .photo-frame {
+        padding: 8px;
+        border-radius: 15px;
     }
 
     .page3-photo {
-        width: 140px;
-        height: 140px;
+        width: 130px;
+        height: 130px;
     }
 
     .photo-caption {
-        font-size: 1.1rem;
+        font-size: 0.85rem;
+        margin-top: 8px;
+    }
+
+    /* Center photo */
+    .center-photo-section {
+        margin-bottom: 30px;
     }
 
     .page3-photo.large {
@@ -1019,16 +1070,26 @@ body {
     }
 
     .center-caption {
-        font-size: 1.3rem;
+        font-size: 1rem;
+        padding: 0 10px;
     }
 
+    /* Hearts side by side (like desktop) */
     .heart-button-section {
-        gap: 40px;
-        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 50px;
+        flex-wrap: nowrap;
+        justify-content: center;
+        margin: 35px 0;
     }
 
     .clickable-heart {
-        font-size: 4rem;
+        font-size: 3.5rem;
+    }
+
+    .click-me-text {
+        font-size: 0.75rem;
+        bottom: -22px;
     }
 
     .left-heart {
@@ -1039,7 +1100,28 @@ body {
         margin-left: 0;
     }
 
+    /* Final reveal */
+    .final-photo {
+        max-width: 92vw;
+        max-height: 60vh;
+    }
+
     .love-text {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        margin-top: 15px;
+    }
+
+    /* Lighter background emojis for mobile perf */
+    .page3-bg-decoration {
+        font-size: 1.5rem;
+        opacity: 0.15;
+    }
+
+    .page3-bg-decoration:nth-child(n+20) {
+        display: none;
+    }
+
+    .page3-rain-emoji {
+        font-size: 1.3rem;
     }
 }

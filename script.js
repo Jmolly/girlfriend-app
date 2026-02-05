@@ -47,6 +47,11 @@ yesBtn.addEventListener('click', () => {
     page1.classList.remove('active');
     page2.classList.add('active');
 
+    // Hide page 1 bg decorations so they don't mix with heart rain
+    document.querySelectorAll('.bg-decoration').forEach(el => {
+        el.style.display = 'none';
+    });
+
     // Start fireworks
     startFireworks();
 
@@ -118,12 +123,25 @@ const noMessages = ['Wrong answer! 😏', 'Try again! 😊'];
 let noClickCount = 0;
 
 function startHeartRain() {
+    // Create initial batch immediately so rain is visible right away
+    for (let i = 0; i < 8; i++) {
+        createRainHeart(true);
+    }
+
+    const isMobile = window.innerWidth <= 600;
+    const interval = isMobile ? 600 : 400;
+
     heartRainInterval = setInterval(() => {
-        createRainHeart();
-    }, 400);
+        // Limit total hearts in DOM for mobile performance
+        const currentHearts = heartRainContainer.querySelectorAll('.heart-rain').length;
+        const maxHearts = isMobile ? 12 : 20;
+        if (currentHearts < maxHearts) {
+            createRainHeart(false);
+        }
+    }, interval);
 }
 
-function createRainHeart() {
+function createRainHeart(isInitial) {
     const emojis = ['💕', '💖', '💗', '💓', '💞', '💝'];
     const heart = document.createElement('div');
     heart.className = 'heart-rain';
@@ -133,14 +151,25 @@ function createRainHeart() {
     heart.style.left = Math.random() * 95 + '%';
 
     // Random duration
-    const duration = 6 + Math.random() * 3;
+    const isMobile = window.innerWidth <= 600;
+    const duration = isMobile ? (4 + Math.random() * 2) : (6 + Math.random() * 3);
     heart.style.animationDuration = duration + 's';
 
-    // Random delay
-    heart.style.animationDelay = Math.random() * 1 + 's';
+    // No delay - hearts appear immediately
+    heart.style.animationDelay = '0s';
 
-    // Always add click handler - collectHeart will check if challenge is active
+    // For initial batch, start hearts at random positions mid-screen
+    if (isInitial) {
+        const startOffset = Math.random() * 80;
+        heart.style.animationDelay = `-${(duration * startOffset) / 100}s`;
+    }
+
+    // Touch/click handler
     heart.addEventListener('click', () => collectHeart(heart));
+    heart.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        collectHeart(heart);
+    }, { passive: false });
 
     heartRainContainer.appendChild(heart);
 
@@ -149,7 +178,7 @@ function createRainHeart() {
         if (heart.parentNode) {
             heart.remove();
         }
-    }, (duration + 1) * 1000);
+    }, (duration + 0.5) * 1000);
 }
 
 // Surprise question handlers
@@ -183,18 +212,19 @@ function playSparkleSound() {
 // Create explosion particles
 function createExplosion(x, y) {
     const particles = ['💕', '💖', '💗', '💓', '💞', '✨', '⭐'];
-    const particleCount = 8;
+    const isMobile = window.innerWidth <= 600;
+    const particleCount = isMobile ? 4 : 8;
+    const distance = isMobile ? 60 : 100;
 
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.className = 'explosion-particle';
         particle.textContent = particles[Math.floor(Math.random() * particles.length)];
 
-        // Random direction for each particle
         const angle = (Math.PI * 2 * i) / particleCount;
-        const distance = 100 + Math.random() * 50;
-        const tx = Math.cos(angle) * distance;
-        const ty = Math.sin(angle) * distance;
+        const dist = distance + Math.random() * 30;
+        const tx = Math.cos(angle) * dist;
+        const ty = Math.sin(angle) * dist;
 
         particle.style.left = x + 'px';
         particle.style.top = y + 'px';
@@ -203,10 +233,9 @@ function createExplosion(x, y) {
 
         document.body.appendChild(particle);
 
-        // Remove particle after animation
         setTimeout(() => {
             particle.remove();
-        }, 800);
+        }, 600);
     }
 }
 
