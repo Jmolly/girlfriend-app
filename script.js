@@ -24,6 +24,16 @@ let noSize = 1;
 // Track if No button is being hovered
 let noHoverCount = 0;
 
+function goToNextPage(currentPage, nextPage) {
+  // Remove current page from DOM
+  if (currentPage && currentPage.parentNode) {
+    currentPage.parentNode.removeChild(currentPage);
+  }
+
+  // Activate next page
+  nextPage.classList.add("active");
+}
+
 // No button hover effect - shrink No, grow Yes
 noBtn.addEventListener("mouseenter", () => {
   noHoverCount++;
@@ -44,8 +54,7 @@ noBtn.addEventListener("mouseenter", () => {
 
 // Yes button click - go to celebration page
 yesBtn.addEventListener("click", () => {
-  page1.classList.remove("active");
-  page2.classList.add("active");
+  goToNextPage(page1, page2);
 
   // Start fireworks
   startFireworks();
@@ -252,8 +261,7 @@ function collectHeart(heart) {
 
 // Final button handler
 finalButton.addEventListener("click", () => {
-  page2.classList.remove("active");
-  page3.classList.add("active");
+  goToNextPage(page2, page3);
 
   // Stop heart rain
   clearInterval(heartRainInterval);
@@ -280,7 +288,7 @@ let page3RainInterval;
 function startPage3EmojiRain() {
   page3RainInterval = setInterval(() => {
     createPage3RainEmoji();
-  }, 300);
+  }, 400);
 }
 
 function createPage3RainEmoji() {
@@ -309,7 +317,7 @@ function createPage3RainEmoji() {
   emoji.style.left = Math.random() * 100 + "%";
 
   // Random duration
-  const duration = 8 + Math.random() * 7;
+  const duration = 6 + Math.random() * 7;
   emoji.style.animationDuration = duration + "s";
 
   // Random delay
@@ -324,7 +332,7 @@ function createPage3RainEmoji() {
         emoji.remove();
       }
     },
-    (duration + 2) * 1000,
+    (duration + 1) * 1000,
   );
 }
 
