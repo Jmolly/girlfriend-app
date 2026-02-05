@@ -1,15 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Valentine Card 💕</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <!-- Background decorations -->
     <div class="bg-decoration">💕</div>
     <div class="bg-decoration">🌸</div>
@@ -46,178 +49,217 @@
 
     <!-- Page 1: Question -->
     <div id="page1" class="page active">
-        <div class="container">
-            <h1 class="title">Valentine Card<br>for my bestie 💝</h1>
+      <div class="container">
+        <h1 class="title">Valentine Card<br />for my bestie 💝</h1>
 
-            <div class="photos-container">
-                <div class="photo-wrapper">
-                    <img src="assets/images/bestie-photo1.jpg" alt="Photo 1" class="photo">
-                </div>
-                <div class="photo-wrapper">
-                    <img src="assets/images/bestie-photo2.jpg" alt="Photo 2" class="photo">
-                </div>
-            </div>
-
-            <div class="question-box">
-                <p class="question">Am I the best friend in the world? 😑</p>
-
-                <div class="buttons-container">
-                    <button id="yesBtn" class="btn yes-btn">Yes 💖</button>
-                    <button id="noBtn" class="btn no-btn">No</button>
-                </div>
-            </div>
+        <div class="photos-container">
+          <div class="photo-wrapper">
+            <img
+              src="assets/images/bestie-photo1.jpg"
+              alt="Photo 1"
+              class="photo"
+            />
+          </div>
+          <div class="photo-wrapper">
+            <img
+              src="assets/images/bestie-photo2.jpg"
+              alt="Photo 2"
+              class="photo"
+            />
+          </div>
         </div>
+
+        <div class="question-box">
+          <p class="question">Am I the best friend in the world? 😑</p>
+
+          <div class="buttons-container">
+            <button id="yesBtn" class="btn yes-btn">Yes 💖</button>
+            <button id="noBtn" class="btn no-btn">No</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Page 2: Celebration -->
     <div id="page2" class="page">
-        <!-- Heart rain for page 2 -->
-        <div class="heart-rain-container" id="heartRainContainer"></div>
+      <!-- Heart rain for page 2 -->
+      <div class="heart-rain-container" id="heartRainContainer"></div>
 
-        <div class="container celebration">
-            <h1 class="celebration-title">I know 😇<br>you are the best too!</h1>
+      <div class="container celebration">
+        <h1 class="celebration-title">I know 😇<br />you are the best too!</h1>
 
-            <div class="celebration-photos-container">
-                <div class="celebration-photo-wrapper">
-                    <img src="assets/images/celebration-photo1.jpg" alt="Photo 1" class="celebration-photo">
-                </div>
-                <div class="celebration-photo-wrapper">
-                    <img src="assets/images/celebration-photo2.jpg" alt="Photo 2" class="celebration-photo">
-                </div>
-                <div class="celebration-photo-wrapper">
-                    <img src="assets/images/celebration-photo3.jpg" alt="Photo 3" class="celebration-photo">
-                </div>
-            </div>
-
-            <!-- Surprise question box -->
-            <div id="surpriseQuestion" class="surprise-box">
-                <p class="surprise-text">Do you want to see a surprise? 🎁</p>
-                <div class="surprise-buttons">
-                    <button id="surpriseYes" class="btn yes-btn">Yes</button>
-                    <button id="surpriseNo" class="btn no-btn">No</button>
-                </div>
-                <p id="noMessage" class="no-message"></p>
-            </div>
-
-            <!-- Collect hearts challenge -->
-            <div id="collectChallenge" class="challenge-box" style="display: none;">
-                <p class="challenge-text">Collect 10 hearts! 💕</p>
-                <p class="heart-counter">Hearts collected: <span id="heartCount">0</span>/10</p>
-                <button id="finalButton" class="btn final-btn" style="display: none;">Click to see a surprise! 🎉</button>
-            </div>
-
-            <div class="hearts-container" id="heartsContainer"></div>
+        <div class="celebration-photos-container">
+          <div class="celebration-photo-wrapper">
+            <img
+              src="assets/images/celebration-photo1.jpg"
+              alt="Photo 1"
+              class="celebration-photo"
+            />
+          </div>
+          <div class="celebration-photo-wrapper">
+            <img
+              src="assets/images/celebration-photo2.jpg"
+              alt="Photo 2"
+              class="celebration-photo"
+            />
+          </div>
+          <div class="celebration-photo-wrapper">
+            <img
+              src="assets/images/celebration-photo3.jpg"
+              alt="Photo 3"
+              class="celebration-photo"
+            />
+          </div>
         </div>
+
+        <!-- Surprise question box -->
+        <div id="surpriseQuestion" class="surprise-box">
+          <p class="surprise-text">Do you want to see a surprise? 🎁</p>
+          <div class="surprise-buttons">
+            <button id="surpriseYes" class="btn yes-btn">Yes</button>
+            <button id="surpriseNo" class="btn no-btn">No</button>
+          </div>
+          <p id="noMessage" class="no-message"></p>
+        </div>
+
+        <!-- Collect hearts challenge -->
+        <div id="collectChallenge" class="challenge-box" style="display: none">
+          <p class="challenge-text">Collect 10 hearts! 💕</p>
+          <p class="heart-counter">
+            Hearts collected: <span id="heartCount">0</span>/10
+          </p>
+          <button id="finalButton" class="btn final-btn" style="display: none">
+            Click to see a surprise! 🎉
+          </button>
+        </div>
+      </div>
+      <div class="hearts-container" id="heartsContainer"></div>
     </div>
 
     <!-- Page 3: Final Page -->
     <div id="page3" class="page">
-        <!-- Background decorations for page 3 -->
-        <div class="page3-bg-decoration">💕</div>
-        <div class="page3-bg-decoration">🌸</div>
-        <div class="page3-bg-decoration">💖</div>
-        <div class="page3-bg-decoration">🌺</div>
-        <div class="page3-bg-decoration">💗</div>
-        <div class="page3-bg-decoration">🌹</div>
-        <div class="page3-bg-decoration">💝</div>
-        <div class="page3-bg-decoration">🌷</div>
-        <div class="page3-bg-decoration">💓</div>
-        <div class="page3-bg-decoration">🌼</div>
-        <div class="page3-bg-decoration">💞</div>
-        <div class="page3-bg-decoration">✨</div>
-        <div class="page3-bg-decoration">⭐</div>
-        <div class="page3-bg-decoration">💫</div>
-        <div class="page3-bg-decoration">🌟</div>
-        <!-- Extra emojis -->
-        <div class="page3-bg-decoration">💘</div>
-        <div class="page3-bg-decoration">🌻</div>
-        <div class="page3-bg-decoration">❤️</div>
-        <div class="page3-bg-decoration">🌈</div>
-        <div class="page3-bg-decoration">💐</div>
-        <div class="page3-bg-decoration">🩷</div>
-        <div class="page3-bg-decoration">🏵️</div>
-        <div class="page3-bg-decoration">💟</div>
-        <div class="page3-bg-decoration">🌙</div>
-        <div class="page3-bg-decoration">✨</div>
-        <div class="page3-bg-decoration">💖</div>
-        <div class="page3-bg-decoration">🌸</div>
-        <div class="page3-bg-decoration">⭐</div>
-        <div class="page3-bg-decoration">💕</div>
-        <div class="page3-bg-decoration">🌺</div>
+      <!-- Background decorations for page 3 -->
+      <div class="page3-bg-decoration">💕</div>
+      <div class="page3-bg-decoration">🌸</div>
+      <div class="page3-bg-decoration">💖</div>
+      <div class="page3-bg-decoration">🌺</div>
+      <div class="page3-bg-decoration">💗</div>
+      <div class="page3-bg-decoration">🌹</div>
+      <div class="page3-bg-decoration">💝</div>
+      <div class="page3-bg-decoration">🌷</div>
+      <div class="page3-bg-decoration">💓</div>
+      <div class="page3-bg-decoration">🌼</div>
+      <div class="page3-bg-decoration">💞</div>
+      <div class="page3-bg-decoration">✨</div>
+      <div class="page3-bg-decoration">⭐</div>
+      <div class="page3-bg-decoration">💫</div>
+      <div class="page3-bg-decoration">🌟</div>
+      <!-- Extra emojis -->
+      <div class="page3-bg-decoration">💘</div>
+      <div class="page3-bg-decoration">🌻</div>
+      <div class="page3-bg-decoration">❤️</div>
+      <div class="page3-bg-decoration">🌈</div>
+      <div class="page3-bg-decoration">💐</div>
+      <div class="page3-bg-decoration">🩷</div>
+      <div class="page3-bg-decoration">🏵️</div>
+      <div class="page3-bg-decoration">💟</div>
+      <div class="page3-bg-decoration">🌙</div>
+      <div class="page3-bg-decoration">✨</div>
+      <div class="page3-bg-decoration">💖</div>
+      <div class="page3-bg-decoration">🌸</div>
+      <div class="page3-bg-decoration">⭐</div>
+      <div class="page3-bg-decoration">💕</div>
+      <div class="page3-bg-decoration">🌺</div>
 
-        <!-- Emoji rain for page 3 -->
-        <div class="page3-emoji-rain" id="page3EmojiRain"></div>
+      <!-- Emoji rain for page 3 -->
+      <div class="page3-emoji-rain" id="page3EmojiRain"></div>
 
-        <div class="page3-content">
-            <!-- Top section with two photos -->
-            <div class="yin-yang-section">
-                <div class="photo-card left">
-                    <div class="photo-frame">
-                        <img src="assets/images/yin-photo.jpg" alt="Инь" class="page3-photo">
-                    </div>
-                    <p class="photo-caption">Она моя...ИНЬ</p>
-                </div>
-
-                <div class="photo-card right">
-                    <div class="photo-frame">
-                        <img src="assets/images/yang-photo.jpg" alt="Янь" class="page3-photo">
-                    </div>
-                    <p class="photo-caption">а я её...ЯНЬ</p>
-                </div>
+      <div class="page3-content">
+        <!-- Top section with two photos -->
+        <div class="yin-yang-section">
+          <div class="photo-card left">
+            <div class="photo-frame">
+              <img
+                src="assets/images/yin-photo.jpg"
+                alt="Инь"
+                class="page3-photo"
+              />
             </div>
+            <p class="photo-caption">Она моя...ИНЬ</p>
+          </div>
 
-            <!-- Center photo with caption -->
-            <div class="center-photo-section">
-                <div class="photo-frame center">
-                    <img src="assets/images/together-photo.jpg" alt="Together" class="page3-photo large">
-                </div>
-                <p class="center-caption">Мы чувствуем друг друга максимально 😮‍💨❤️‍🔥</p>
+          <div class="photo-card right">
+            <div class="photo-frame">
+              <img
+                src="assets/images/yang-photo.jpg"
+                alt="Янь"
+                class="page3-photo"
+              />
             </div>
-
-            <!-- Interactive hearts -->
-            <div class="heart-button-section">
-                <div id="clickableHeart1" class="clickable-heart left-heart">
-                    💗
-                    <span class="click-me-text">click me first!😏</span>
-                </div>
-                <div id="clickableHeart2" class="clickable-heart right-heart">
-                    💗
-                    <span class="click-me-text">and now click me 😍</span>
-                </div>
-            </div>
-
-            <!-- Hidden final photo with hearts background -->
-            <div id="finalReveal" class="final-reveal">
-                <div class="hearts-background"></div>
-                <div class="final-photo-container">
-                    <img src="assets/images/love-photo.jpg" alt="I love you" class="final-photo">
-                    <h2 class="love-text">I love you! 😘</h2>
-                </div>
-            </div>
+            <p class="photo-caption">а я её...ЯНЬ</p>
+          </div>
         </div>
+
+        <!-- Center photo with caption -->
+        <div class="center-photo-section">
+          <div class="photo-frame center">
+            <img
+              src="assets/images/together-photo.jpg"
+              alt="Together"
+              class="page3-photo large"
+            />
+          </div>
+          <p class="center-caption">Мы чувствуем друг друга максимально 😮‍💨❤️‍🔥</p>
+        </div>
+
+        <!-- Interactive hearts -->
+        <div class="heart-button-section">
+          <div id="clickableHeart1" class="clickable-heart left-heart">
+            💗
+            <span class="click-me-text">click me first!😏</span>
+          </div>
+          <div id="clickableHeart2" class="clickable-heart right-heart">
+            💗
+            <span class="click-me-text">and now click me 😍</span>
+          </div>
+        </div>
+
+        <!-- Hidden final photo with hearts background -->
+        <div id="finalReveal" class="final-reveal">
+          <div class="hearts-background"></div>
+          <div class="final-photo-container">
+            <img
+              src="assets/images/love-photo.jpg"
+              alt="I love you"
+              class="final-photo"
+            />
+            <h2 class="love-text">I love you! 😘</h2>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Audio elements -->
     <audio id="btsAudio" loop>
-        <!-- BTS - Dynamite -->
-        <source src="assets/audio/bts-dynamite.mp3" type="audio/mpeg">
+      <!-- BTS - Dynamite -->
+      <source src="assets/audio/bts-dynamite.mp3" type="audio/mpeg" />
     </audio>
 
     <audio id="rickrollAudio" loop>
-        <!-- Never Gonna Give You Up -->
-        <source src="assets/audio/rickroll.mp3" type="audio/mpeg">
+      <!-- Never Gonna Give You Up -->
+      <source src="assets/audio/rickroll.mp3" type="audio/mpeg" />
     </audio>
 
     <audio id="sparkleAudio" preload="auto">
-        <!-- Sparkle sound effect -->
-        <source src="assets/sounds/sparkle.mp3" type="audio/mpeg">
+      <!-- Sparkle sound effect -->
+      <source src="assets/sounds/sparkle.mp3" type="audio/mpeg" />
     </audio>
 
     <audio id="fireworkAudio" preload="auto">
-        <!-- Firework sound effect -->
-        <source src="assets/audio/firework.mp3" type="audio/mpeg">
+      <!-- Firework sound effect -->
+      <source src="assets/audio/firework.mp3" type="audio/mpeg" />
     </audio>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
